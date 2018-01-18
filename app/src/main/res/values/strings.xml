@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Olemiss Nepal</string>
+
+    <string name="full_name_string">Full Name</string>
+    <string name="phoneNumber_string">Phone Number</string>
+    <string name="nickname_string">Nickname</string>
+    <string name="email_string">Email</string>
+
+</resources>

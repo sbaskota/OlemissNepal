@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "821961368135",
+    "firebase_url": "https://olemissnepal.firebaseio.com",
+    "project_id": "olemissnepal",
+    "storage_bucket": "olemissnepal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:821961368135:android:c6e2b961cf0903e4",
+        "android_client_info": {
+          "package_name": "com.example.sushant.olemissnepal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "821961368135-lhhrhork915lf3hbdvioaufa2cokmuds.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sushant.olemissnepal",
+            "certificate_hash": "528a3eb37275f97bc611e833aac31cbc97720bb0"
+          }
+        },
+        {
+          "client_id": "821961368135-2j00an8l4qhgic4u70m6kelekq0gffkt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDw0jvxXO6mgLYdOARr66CFaoHjvD85Ntk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "821961368135-2j00an8l4qhgic4u70m6kelekq0gffkt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
