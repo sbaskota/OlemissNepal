@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -45,6 +46,10 @@ public class NepaliActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseAuth.AuthStateListener mAuthListener;
     GoogleSignInClient mGoogleSignInClient;
+    public final String OLEMISS_WEBPAGE_URL ="https://www.olemiss.edu";
+    public final String OLEMISS_ADDRESS_STRING="UNIVERSITY, MS";
+    private final String CREATOR_EMAIL ="sushant2fotball@gmail.com";
+    String[] addresses= {CREATOR_EMAIL};
 
     @Override
     protected void onStart() {
@@ -142,9 +147,67 @@ public class NepaliActivity extends AppCompatActivity {
             case R.id.log_out_menu:
                 signOut();
                 break;
+            case R.id.olemiss_website_menu:
+                openWebpage(OLEMISS_WEBPAGE_URL);
+                break;
+            case R.id.olemiss_map_menu:
+                openOlemissMap();
+                break;
+            case R.id.share_content_menu:
+                shareText("There is a problem with the app");
+                break;
+            case R.id.send_email:
+                composeEmail(addresses,"Error within the app");
+                break;
 
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void openWebpage(String url){
+        Uri webpage = Uri.parse(url);
+        Intent intent = new Intent (Intent.ACTION_VIEW,webpage);
+        if(intent.resolveActivity(getPackageManager())!=null){
+            startActivity(intent);
+        }
+    }
+
+    public void openOlemissMap(){
+
+        Uri.Builder builder = new Uri.Builder();
+        builder.scheme("geo")
+                .path("0,0")
+                .query(OLEMISS_ADDRESS_STRING);
+        Uri addressUri = builder.build();
+
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(addressUri);
+        if(intent.resolveActivity(getPackageManager())!=null){
+            startActivity(intent);
+        }
+    }
+
+    public void shareText(String textToShare){
+        String mediaType ="text/plain";
+        String Title="Error Log";
+
+
+        ShareCompat.IntentBuilder.from(this)
+                .setChooserTitle(Title)
+                .setType(mediaType)
+                .setText(textToShare)
+                .startChooser();
+    }
+    public void composeEmail(String[] addresses, String subject) {
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+        String emailMessage = "There is a problem with the app. Specifically, ";
+        intent.putExtra(Intent.EXTRA_EMAIL, addresses);
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT,emailMessage);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 
 

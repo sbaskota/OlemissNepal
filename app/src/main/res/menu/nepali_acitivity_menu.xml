@@ -15,5 +15,20 @@
         android:id="@+id/log_out_menu"
         app:showAsAction="never"
     />
+    <item
+        android:title="Olemiss Website"
+        android:id="@+id/olemiss_website_menu"
+        app:showAsAction="never"/>
+    <item
+        android:title="Olemiss Map"
+        android:id="@+id/olemiss_map_menu"
+        app:showAsAction="never"/>
+    <item
+        android:title="Share Content"
+        android:id="@+id/share_content_menu"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/send_email"
+        android:title="Send App Report"/>
 
 </menu>

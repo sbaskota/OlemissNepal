@@ -11,4 +11,5 @@ public class NextBusActivity extends AppCompatActivity {
         setContentView(R.layout.activity_next_bus);
     }
 
+
 }
