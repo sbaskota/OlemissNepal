@@ -47,7 +47,7 @@ public class NepaliActivity extends AppCompatActivity {
     FirebaseAuth.AuthStateListener mAuthListener;
     GoogleSignInClient mGoogleSignInClient;
     public final String OLEMISS_WEBPAGE_URL ="https://www.olemiss.edu";
-    public final String OLEMISS_ADDRESS_STRING="UNIVERSITY, MS";
+    public final String OLEMISS_ADDRESS_STRING="University Of Mississippi, MS";
     private final String CREATOR_EMAIL ="sushant2fotball@gmail.com";
     String[] addresses= {CREATOR_EMAIL};
 
@@ -179,15 +179,20 @@ public class NepaliActivity extends AppCompatActivity {
                 .path("0,0")
                 .query(OLEMISS_ADDRESS_STRING);
         Uri addressUri = builder.build();
-
+        Uri geoLocation = Uri.parse("geo:0,0?q=University+of+Mississippi%2C+MS");
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(addressUri);
+        intent.setData(geoLocation);
         if(intent.resolveActivity(getPackageManager())!=null){
             startActivity(intent);
         }
     }
 
+
+
+
     public void shareText(String textToShare){
+
+        String yoString = "maile ya lekhe hai";
         String mediaType ="text/plain";
         String Title="Error Log";
 
